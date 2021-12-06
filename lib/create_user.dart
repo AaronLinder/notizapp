@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
-class signin extends StatelessWidget {
-  const signin({Key? key}) : super(key: key);
+class create extends StatelessWidget {
+  const create({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      child: Padding(
+        padding: EdgeInsets.only(left: 40, right: 40),
         child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
         children: [
-        Text('User Login'),
+        Text('Neuer Benutzer'),
     TextField(
     onSubmitted: null,
     decoration: InputDecoration(
@@ -35,7 +39,7 @@ class signin extends StatelessWidget {
     )
     )
     ]
-    ));
+    )));
   }
 }
 
