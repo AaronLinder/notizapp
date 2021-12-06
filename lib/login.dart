@@ -6,30 +6,34 @@ class login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      padding: EdgeInsets.only(top: 50.0),
+      padding: EdgeInsets.all(50.0),
       child: Column(
-      children: const [
-        Text('User Login'),
-        TextField(
-          onSubmitted: null,
-          decoration: InputDecoration(
-            labelText: 'Username',
-          )
-        ),
-        TextField(
-            onSubmitted: null,
-            decoration: InputDecoration(
-              labelText: 'Passwort',
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          children: const [
+            Text('User Login'),
+            TextField(
+                onSubmitted: null,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Username',
+                )
+            ),
+            TextField(
+                onSubmitted: null,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Passwort',
+                )
+            ),
+            ElevatedButton(
+                onPressed: null,
+                child: Center(
+                  child: Text('Neuer Benutzer'),
+                )
             )
-        ),
-        ElevatedButton(
-            onPressed: null,
-            child: Center(
-              child: Text('Neuer Benutzer'),
-            )
-        )
-      ]
-    )
+          ]
+      )
     );
   }
 }

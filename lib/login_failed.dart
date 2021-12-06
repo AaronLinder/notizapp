@@ -8,17 +8,22 @@ class login extends StatelessWidget {
       alignment: Alignment.center,
       padding: EdgeInsets.only(top: 50.0),
       child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+
       children: const [
         Text('User Login'),
         TextField(
           onSubmitted: null,
           decoration: InputDecoration(
+            border: OutlineInputBorder(),
             labelText: 'Username',
           )
         ),
         TextField(
             onSubmitted: null,
             decoration: InputDecoration(
+              border: OutlineInputBorder(),
               labelText: 'Passwort',
             )
         ),
