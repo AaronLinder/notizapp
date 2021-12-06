@@ -5,6 +5,8 @@ class login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
+      padding: EdgeInsets.only(top: 50.0),
       child: Column(
       children: const [
         Text('User Login'),
