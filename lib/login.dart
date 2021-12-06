@@ -10,7 +10,7 @@ class login extends StatelessWidget {
       child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
-          children: const [
+          children: [
             Text('User Login'),
             TextField(
                 onSubmitted: null,
@@ -27,7 +27,9 @@ class login extends StatelessWidget {
                 )
             ),
             ElevatedButton(
-                onPressed: null,
+                onPressed: () {
+                  Navigator.pushNamed(context, 'create');
+                },
                 child: Center(
                   child: Text('Neuer Benutzer'),
                 )

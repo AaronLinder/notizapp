@@ -19,8 +19,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: create(),
+        body: login(),
       ),
+      routes: {
+        "login": (context) => login(),
+        "create": (context) => create(),
+      },
     );
   }
 }
