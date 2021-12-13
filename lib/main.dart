@@ -3,6 +3,8 @@ import 'login.dart';
 import 'create_user.dart';
 import 'login_failed.dart';
 import 'create_user_fail.dart';
+import 'notiz.dart';
+import 'notizenuebersicht.dart';
 
 
 void main() {
@@ -28,6 +30,7 @@ class _MyAppState extends State<MyApp> {
         "create": (context) => create(),
         "loginf": (context) => login_failed(),
         "createf": (context) => create_user_fail(),
+        "notiz": (context) => notiz(),
       },
     );
   }
