@@ -31,7 +31,7 @@ class login extends StatelessWidget {
                       Navigator.pushNamed(context, 'create');
                     },
                     child: Center(
-                      child: Text('Neuer Benutzer'),
+                      child: Text('Neuer Benutzer erstellen'),
                     ))
               ])),
     );
