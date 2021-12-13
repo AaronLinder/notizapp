@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'login.dart';
 import 'create_user.dart';
+import 'login_failed.dart';
+import 'create_user_fail.dart';
 
 
 void main() {
@@ -24,6 +26,8 @@ class _MyAppState extends State<MyApp> {
       routes: {
         "login": (context) => login(),
         "create": (context) => create(),
+        "loginf": (context) => login_failed(),
+        "createf": (context) => create_user_fail(),
       },
     );
   }
