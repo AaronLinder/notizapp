@@ -6,8 +6,8 @@ class create extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Padding(
+    return Scaffold(
+        body: Padding(
             padding: const EdgeInsets.only(left: 50, right: 50),
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +34,7 @@ class create extends StatelessWidget {
                       )),
                   ElevatedButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, "login");
                       },
                       child: const Center(
                         child: Text('abbrechen'),
