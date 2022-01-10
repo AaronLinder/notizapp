@@ -8,8 +8,9 @@ class notiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+          alignment: Alignment.center,
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
