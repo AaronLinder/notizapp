@@ -7,14 +7,12 @@ class notiz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          alignment: Alignment.center,
+      body: Padding(
+          padding: EdgeInsets.all(20),
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
               children: [
-                Align(
-                  alignment: Alignment.topCenter,
+                Padding(
+                  padding: EdgeInsets.only(left: 30, right: 30),
                   child: TextField(
                     onSubmitted: null,
                     decoration: InputDecoration(
@@ -28,8 +26,8 @@ class notiz extends StatelessWidget {
                       border: OutlineInputBorder(),
                       labelText: 'Notiztext',
                     )),
-                Align(
-                  alignment: Alignment.bottomCenter,
+                Padding(
+                  padding: EdgeInsets.only(bottom: 10),
                   child: Row(
                   children: [
                     ElevatedButton(
