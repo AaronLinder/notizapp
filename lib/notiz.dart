@@ -27,7 +27,7 @@ class notiz extends StatelessWidget {
                     )),
                 ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, 'notizenuebersicht');
+                      Navigator.pushNamed(context, 'uebersicht');
                     },
                     child: Center(
                       child: Text('zurück'),
