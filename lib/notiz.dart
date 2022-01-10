@@ -8,8 +8,6 @@ class notiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.all(50.0),
           child: Column(
               children: [
                 Align(
