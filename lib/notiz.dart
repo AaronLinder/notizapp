@@ -23,12 +23,12 @@ class notiz extends StatelessWidget {
                   TextField(
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(vertical: 100),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 250),
                       border: OutlineInputBorder(),
                       labelText: 'Notiztext',
                     )),
                 Padding(
-                  padding: EdgeInsets.only(top: 170),
+                  padding: EdgeInsets.only(top: 30),
                   child: Row(
                   children: [
                     ElevatedButton(
