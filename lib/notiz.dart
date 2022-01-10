@@ -20,10 +20,11 @@ class notiz extends StatelessWidget {
                       labelText: 'Title',
                     )),
                 ),
+                  SizedBox(height: 10),
                   TextField(
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(vertical: 250),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 230),
                       border: OutlineInputBorder(),
                       labelText: 'Notiztext',
                     )),
