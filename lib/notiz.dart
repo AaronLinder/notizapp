@@ -27,7 +27,7 @@ class notiz extends StatelessWidget {
                       labelText: 'Notiztext',
                     )),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 10),
+                  padding: EdgeInsets.only(top: 100),
                   child: Row(
                   children: [
                     ElevatedButton(
