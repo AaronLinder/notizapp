@@ -20,7 +20,7 @@ class notiz extends StatelessWidget {
                       labelText: 'Title',
                     )),
                 TextField(
-                    onSubmitted: null,
+                    onEditingComplete: null,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Notiztext',
