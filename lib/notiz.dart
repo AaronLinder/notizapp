@@ -11,8 +11,6 @@ class notiz extends StatelessWidget {
           alignment: Alignment.center,
           padding: EdgeInsets.all(50.0),
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
                   alignment: Alignment.topCenter,
