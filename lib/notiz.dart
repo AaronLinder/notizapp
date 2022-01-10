@@ -8,10 +8,10 @@ class notiz extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
               children: [
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(left: 30, right: 30),
                   child: TextField(
                     onSubmitted: null,
@@ -20,20 +20,21 @@ class notiz extends StatelessWidget {
                       labelText: 'Title',
                     )),
                 ),
-                  SizedBox(height: 10),
-                  TextField(
+                   const SizedBox(height: 10),
+                  const TextField(
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.symmetric(vertical: 230),
+                      contentPadding: EdgeInsets.symmetric(vertical: 230),
                       border: OutlineInputBorder(),
-                      labelText: 'Notiztext',
+                      hintText: "Notiztext",
                     )),
-                Padding(
-                  padding: EdgeInsets.only(top: 30),
-                  child: Row(
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {
+                Expanded(
+                  child: new Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Row(
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
                           Navigator.pushNamed(context, 'uebersicht');
                         },
                         child: Center(
