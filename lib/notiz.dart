@@ -27,7 +27,7 @@ class notiz extends StatelessWidget {
                       labelText: 'Notiztext',
                     )),
                 Padding(
-                  padding: EdgeInsets.only(top: 300, right: 70, left: 70),
+                  padding: EdgeInsets.only(top: 400, right: 70, left: 70),
                   child: Row(
                   children: [
                     ElevatedButton(
@@ -37,6 +37,7 @@ class notiz extends StatelessWidget {
                         child: Center(
                           child: Text('zurück'),
                         )),
+                    const SizedBox(width: 100,),
                     ElevatedButton(
                         onPressed: () {
                           Navigator.pushNamed(context, 'notizenuebersicht');
