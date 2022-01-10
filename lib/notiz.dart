@@ -25,20 +25,25 @@ class notiz extends StatelessWidget {
                       border: OutlineInputBorder(),
                       labelText: 'Notiztext',
                     )),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'uebersicht');
-                    },
-                    child: Center(
-                      child: Text('zurück'),
-                    )),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'notizenuebersicht');
-                    },
-                    child: Center(
-                      child: Text('speichern'),
-                    ))
+                Row(
+                  children: [
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'uebersicht');
+                        },
+                        child: Center(
+                          child: Text('zurück'),
+                        )),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'notizenuebersicht');
+                        },
+                        child: Center(
+                          child: Text('speichern'),
+                        ))
+                    ]
+                )
+
               ])),
     );
   }
