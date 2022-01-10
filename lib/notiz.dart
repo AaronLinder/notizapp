@@ -20,12 +20,16 @@ class notiz extends StatelessWidget {
                       labelText: 'Title',
                     )),
                 ),
-                TextField(
+                Container(
+                  height: 300,
+                  child: TextField(
                     onEditingComplete: null,
+                    keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Notiztext',
                     )),
+                ),
                 Padding(
                   padding: EdgeInsets.only(top: 470),
                   child: Row(
