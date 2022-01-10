@@ -31,7 +31,7 @@ class notiz extends StatelessWidget {
                     )),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 470),
+                  padding: EdgeInsets.only(top: 170),
                   child: Row(
                   children: [
                     ElevatedButton(
