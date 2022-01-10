@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class notiz extends StatelessWidget {
@@ -13,19 +14,24 @@ class notiz extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                TextField(
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: TextField(
                     onSubmitted: null,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Title',
                     )),
+                ),
                 TextField(
                     onEditingComplete: null,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Notiztext',
                     )),
-                Row(
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Row(
                   children: [
                     ElevatedButton(
                         onPressed: () {
@@ -43,6 +49,7 @@ class notiz extends StatelessWidget {
                         ))
                     ]
                 )
+                ),
 
               ])),
     );
