@@ -29,6 +29,7 @@ class notiz extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               const TextField(
+                  textInputAction: TextInputAction.newline,
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
                   decoration: InputDecoration(
