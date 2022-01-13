@@ -5,6 +5,7 @@ import 'login_failed.dart';
 import 'create_user_fail.dart';
 import 'notiz.dart';
 import 'notizenuebersicht.dart';
+import 'settings.dart';
 
 
 void main() {
@@ -32,6 +33,7 @@ class _MyAppState extends State<MyApp> {
         "createf": (context) => create_user_fail(),
         "notiz": (context) => notiz(),
         "uebersicht": (context) => uebersicht(),
+        "options": (context) => options(),
       },
     );
   }
