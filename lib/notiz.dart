@@ -33,7 +33,7 @@ class notiz extends StatelessWidget {
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.symmetric(vertical: 230),
+                    contentPadding: EdgeInsets.only(bottom: 460),
                     border: OutlineInputBorder(),
                     hintText: "Notiztext",
                   )),
