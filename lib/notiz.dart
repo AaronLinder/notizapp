@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:notizapp/sidebar.dart';
 
 class notiz extends StatelessWidget {
   const notiz({Key? key}) : super(key: key);
@@ -7,9 +8,13 @@ class notiz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
+      drawer: NavDrawer(),
+      body: Container(
+        child: SingleChildScrollView(
+        child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
               children: [
                 const Padding(
                   padding: EdgeInsets.only(left: 30, right: 30),
@@ -28,7 +33,7 @@ class notiz extends StatelessWidget {
                       border: OutlineInputBorder(),
                       hintText: "Notiztext",
                     )),
-                Expanded(
+                Flexible(
                   child: new Align(
                     alignment: Alignment.bottomCenter,
                     child: Row(
@@ -52,7 +57,7 @@ class notiz extends StatelessWidget {
                 )
                 ),
 
-                )])),
+                )])),),),
     );
   }
 }
