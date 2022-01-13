@@ -52,7 +52,7 @@ class notiz extends StatelessWidget {
                 )
                 ),
 
-              ])),
+                )])),
     );
   }
 }
