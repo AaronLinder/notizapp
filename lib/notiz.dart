@@ -31,6 +31,7 @@ class notiz extends StatelessWidget {
               const TextField(
                   textInputAction: TextInputAction.newline,
                   keyboardType: TextInputType.multiline,
+                  textAlignVertical: TextAlignVertical.center,
                   maxLines: null,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.only(bottom: 460),
