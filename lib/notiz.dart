@@ -28,21 +28,16 @@ class notiz extends StatelessWidget {
                     )),
               ),
               const SizedBox(height: 10),
-              TextFormField(
-                minLines: 1,
-                maxLines: null,
-                keyboardType: TextInputType.multiline,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(bottom: 460),
-                  hintText: 'Notiztext',
-                  hintStyle: TextStyle(
-                      color: Colors.grey
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  ),
-                ),
-              ),
+              const TextField(
+                  textInputAction: TextInputAction.newline,
+                  keyboardType: TextInputType.multiline,
+                  textAlignVertical: TextAlignVertical.center,
+                  maxLines: null,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(bottom: 460),
+                    border: OutlineInputBorder(),
+                    hintText: "Notiztext",
+                  )),
               Flexible(
                 child: Align(
                   alignment: Alignment.bottomCenter,
