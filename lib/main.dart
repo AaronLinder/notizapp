@@ -6,7 +6,7 @@ import 'create_user_fail.dart';
 import 'notiz.dart';
 import 'notizenuebersicht.dart';
 import 'settings.dart';
-
+import 'colorScheme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +23,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
+        theme: CustomTheme.darkTheme,
+      home: const Scaffold(
         body: notiz(),
       ),
       routes: {
