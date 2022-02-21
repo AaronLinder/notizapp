@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'authentification.dart';
 
 class login extends StatelessWidget {
-  const login({Key? key}) : super(key: key);
+  login({Key? key}) : super(key: key);
+
+  String email = "";
+  String password = "";
 
   @override
   Widget build(BuildContext context) {
@@ -15,20 +19,26 @@ class login extends StatelessWidget {
           children: [
             Text('User Login'),
             TextField(
-                onSubmitted: null,
+                onChanged: (input) {
+                  email = input;
+                },
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'E-mail',
                 )),
             TextField(
-              onSubmitted: null,
+              onChanged: (input) {
+                password = input;
+              },
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Passwort',
               ),
             ),
             ElevatedButton(
-              onPressed: null,
+              onPressed: () {
+                AuthenticationHelper().signIn(email: email, password: password);
+              },
               child: Center(
                 child: Text("login"),
               ),
