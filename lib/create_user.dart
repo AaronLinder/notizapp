@@ -1,5 +1,3 @@
-import 'dart:html';
-import 'dart:js';
 
 import 'package:flutter/material.dart';
 import 'login.dart';
@@ -63,11 +61,11 @@ class create extends StatelessWidget {
                 ])));
   }
 
-  void passwordchecker(String email, String password, String passwordcheck, context) {
+  void passwordchecker(String email, String password, String passwordcheck, context) async {
     if (password == passwordcheck) {
-      AuthenticationHelper().signUp(email: email, password: password);
+      await AuthenticationHelper().signUp(email: email, password: password);
     } else {
-        Navigator.pushNamed(context, "login");
+        Navigator.pushNamed(context, "createf");
     }
   }
 }

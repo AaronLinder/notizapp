@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'main.dart';
 
 class AuthenticationHelper {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -10,6 +11,7 @@ class AuthenticationHelper {
       await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
+
       );
       return null;
     } on FirebaseAuthException catch (e) {
