@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "420754306560",
+    "project_id": "notizapp-aef86",
+    "storage_bucket": "notizapp-aef86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420754306560:android:e29275487eeb67c5f60ae5",
+        "android_client_info": {
+          "package_name": "com.example.notizapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "420754306560-hrjr6di4p9urm9drafrvnvl84869cdus.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeEKF5GxYpNhdRy_jelFKtj4ZgMdd5iTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "420754306560-hrjr6di4p9urm9drafrvnvl84869cdus.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
