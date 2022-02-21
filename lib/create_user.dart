@@ -7,11 +7,11 @@ import 'authentification.dart';
 import 'main.dart';
 
 class create extends StatelessWidget {
-  const create({Key? key}) : super(key: key);
+  create({Key? key}) : super(key: key);
 
-  String email;
-  String password;
-  String passwordcheck;
+  String email = "";
+  String password = "";
+  String passwordcheck = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
