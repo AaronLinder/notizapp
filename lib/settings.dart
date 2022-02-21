@@ -1,54 +1,52 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:notizapp/sidbare_settings.dart';
+import 'main.dart';
+bool isSelected = false;
 class options extends StatefulWidget {
   const options({Key? key}) : super(key: key);
 
   @override
   State<options> createState() => _optionsState();
 }
-
 class _optionsState extends State<options> {
-  bool isSelected = false;
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
+      appBar: AppBar(
+        title: Center(child: Text("Settings")),
+      ),
       body: Column(
         children: [
-          Text("Color Scheme"),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text("Color Scheme"),
+          ),
           Row(children: [
             Container(
-                alignment: Alignment.center,
-                child: ChoiceChip(
-                  label: Text("Bright"),
-                  selected: isSelected,
-                  onSelected: (bool value) {
-                    setState(() {
-                      isSelected = !isSelected;
-                    });
-                  },
-                  pressElevation: 20,
-                  backgroundColor: Colors.black54,
-                  selectedColor: Colors.greenAccent,
-                )),
-            Container(
-                alignment: Alignment.center,
-                child: ChoiceChip(
-                  label: Text("Dark"),
-                  selected: !isSelected,
-                  onSelected: (bool value) {
-                    setState(() {
-                      isSelected = !isSelected;
-                    });
-                  },
-                  pressElevation: 20,
-                  backgroundColor: Colors.black54,
-                  selectedColor: Colors.greenAccent,
-                ))
+              child: Text("Darke Theme"),
+            ),
+            CupertinoSwitch(
+              value: isSelected,
+              onChanged: (value) {
+                setState(() {
+                  isSelected = value;
+                  colors();
+                },
+                );
+              },
+            ),
           ])
         ],
       ),
     );
   }
+
+  colors(){
+    color();
+  }
 }
+

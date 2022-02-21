@@ -23,5 +23,25 @@ class CustomTheme {
     return t;
   }
 
+  static ThemeData get lightTheme {
+    ColorScheme colorScheme = const ColorScheme(
+      brightness: Brightness.light,
+      primary: Color.fromRGBO(0, 182, 255, 1.0),
+      secondary: Color.fromRGBO(38, 255, 0, 1.0),
+      secondaryVariant: Color.fromRGBO(255, 0, 232, 1.0),
+      background: Color.fromRGBO(255, 255, 255, 1.0),
+      onSurface: Color.fromRGBO(0, 127, 85, 1.0),
+      onPrimary: Color.fromRGBO(0, 0, 0, 0.42745098039215684),
+      surface: Color.fromRGBO(255, 88, 0, 1.0),
+      primaryVariant: Color.fromRGBO(17, 0, 255, 1.0),
+      error: Color.fromRGBO(255, 0, 0, 1.0),
+      onError: Color.fromRGBO(204, 141, 222, 1.0),
+      onSecondary: Color.fromRGBO(0, 255, 183, 1.0),
+      onBackground: Color.fromRGBO(255, 0, 0, 1.0),
+    );
 
+    var t = ThemeData.from(colorScheme: colorScheme);
+
+    return t;
+  }
 }

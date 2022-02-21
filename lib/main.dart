@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: CustomTheme.darkTheme,
+        theme: color(),
       home: const Scaffold(
         body: notiz(),
       ),
@@ -37,5 +37,14 @@ class _MyAppState extends State<MyApp> {
         "options": (context) => options(),
       },
     );
+  }
+}
+
+color() {
+  if(isSelected){
+    CustomTheme.lightTheme;
+  }
+  else{
+    CustomTheme.darkTheme;
   }
 }
