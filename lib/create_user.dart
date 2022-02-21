@@ -64,6 +64,7 @@ class create extends StatelessWidget {
   void passwordchecker(String email, String password, String passwordcheck, context) async {
     if (password == passwordcheck) {
       await AuthenticationHelper().signUp(email: email, password: password);
+      Navigator.pushNamed(context, "uebersicht");
     } else {
         Navigator.pushNamed(context, "createf");
     }

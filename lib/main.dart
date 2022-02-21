@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         theme: color(),
       home: const Scaffold(
-        body: notiz(),
+        body: login(),
       ),
       routes: {
         "login": (context) => login(),
