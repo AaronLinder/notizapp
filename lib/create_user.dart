@@ -1,9 +1,17 @@
+import 'dart:html';
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'login.dart';
+import 'authentification.dart';
+import 'main.dart';
 
 class create extends StatelessWidget {
   const create({Key? key}) : super(key: key);
 
+  String email;
+  String password;
+  String passwordcheck;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,26 +22,34 @@ class create extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text('E-mail'),
-                  const TextField(
-                      onSubmitted: null,
+                  TextField(
+                      onChanged: (input) {
+                        email = input;
+                      },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'e-mail',
                       )),
-                  const TextField(
-                      onSubmitted: null,
+                  TextField(
+                      onChanged: (input) {
+                        password = input;
+                      },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Passwort',
                       )),
-                  const TextField(
-                      onSubmitted: null,
+                  TextField(
+                      onChanged: (input) {
+                        passwordcheck = input;
+                      },
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Passwort bestätigen',
                       )),
                   ElevatedButton(
-                      onPressed: null,
+                      onPressed: () {
+                        passwordchecker(email, password, passwordcheck, context);
+                      },
                       child: const Center(
                         child: Text('Benutzer erstellen'),
                       )),
@@ -45,5 +61,13 @@ class create extends StatelessWidget {
                         child: Text('abbrechen'),
                       ))
                 ])));
+  }
+
+  void passwordchecker(String email, String password, String passwordcheck, context) {
+    if (password == passwordcheck) {
+      AuthenticationHelper().signUp(email: email, password: password);
+    } else {
+        Navigator.pushNamed(context, "login");
+    }
   }
 }
