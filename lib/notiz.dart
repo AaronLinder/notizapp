@@ -44,12 +44,13 @@ class notiz extends StatelessWidget {
                   child: Row(
                     children: [
                       ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, 'uebersicht');
-                          },
-                          child: const Center(
-                            child: Text('zurück'),
-                          )),
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'uebersicht');
+                        },
+                        child: const Center(
+                          child: Text('zurück'),
+                        ),
+                      ),
                       const SizedBox(width: 200),
                       ElevatedButton(
                         onPressed: () {
