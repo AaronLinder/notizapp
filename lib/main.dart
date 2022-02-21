@@ -7,8 +7,12 @@ import 'notiz.dart';
 import 'notizenuebersicht.dart';
 import 'settings.dart';
 import 'colorScheme.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
