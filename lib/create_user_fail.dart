@@ -13,12 +13,12 @@ class create_user_fail extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Text('Neuer Benutzer'),
+                  Text('E-mail'),
                   const TextField(
                       onSubmitted: null,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Username',
+                        labelText: 'E-mail',
                       )),
                   const TextField(
                       onSubmitted: null,

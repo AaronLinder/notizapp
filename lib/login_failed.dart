@@ -18,7 +18,7 @@ class login_failed extends StatelessWidget {
                     onSubmitted: null,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Username',
+                      labelText: 'E-mail',
                     )),
                 TextField(
                     onSubmitted: null,
