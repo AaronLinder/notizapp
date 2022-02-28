@@ -6,6 +6,7 @@ class login extends StatelessWidget {
 
   String email = "";
   String password = "";
+  bool isVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +27,18 @@ class login extends StatelessWidget {
                   border: OutlineInputBorder(),
                   labelText: 'E-mail',
                 )),
-            TextField(
+            TextFormField(
               onChanged: (input) {
                 password = input;
               },
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Passwort',
+                suffixIcon: IconButton(
+                  onPressed: () => visibility(),
+                  icon:
+                    Icon(isVisible ? Icons.visibility : Icons.visibility_off),
+                ),
               ),
             ),
             ElevatedButton(
@@ -55,5 +61,8 @@ class login extends StatelessWidget {
         ),
       ),
     );
+  }
+  void visibility() {
+      isVisible = !isVisible;
   }
 }
