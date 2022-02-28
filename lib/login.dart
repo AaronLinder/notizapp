@@ -28,6 +28,7 @@ class login extends StatelessWidget {
                   labelText: 'E-mail',
                 )),
             TextFormField(
+              obscureText: isVisible ? false : true,
               onChanged: (input) {
                 password = input;
               },
