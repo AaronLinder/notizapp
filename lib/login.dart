@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
 import 'authentification.dart';
 
-class login extends StatelessWidget {
+class login extends StatefulWidget {
   login({Key? key}) : super(key: key);
 
+  @override
+  State<login> createState() => _loginState();
+}
+
+class _loginState extends State<login> {
   String email = "";
+
   String password = "";
+
   bool isVisible = false;
+
+  void visibility() {
+    setState(() {
+      isVisible = !isVisible;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +75,5 @@ class login extends StatelessWidget {
         ),
       ),
     );
-  }
-  void visibility() {
-      isVisible = !isVisible;
   }
 }

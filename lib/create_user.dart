@@ -4,12 +4,28 @@ import 'login.dart';
 import 'authentification.dart';
 import 'main.dart';
 
-class create extends StatelessWidget {
+class create extends StatefulWidget {
   create({Key? key}) : super(key: key);
 
+  @override
+  State<create> createState() => _createState();
+}
+
+class _createState extends State<create> {
   String email = "";
+
   String password = "";
+
   String passwordcheck = "";
+
+  bool isVisible = false;
+
+  void visibility() {
+    setState(() {
+      isVisible = !isVisible;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,22 +44,36 @@ class create extends StatelessWidget {
                         border: OutlineInputBorder(),
                         labelText: 'e-mail',
                       )),
-                  TextField(
-                      onChanged: (input) {
-                        password = input;
-                      },
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Passwort',
-                      )),
-                  TextField(
-                      onChanged: (input) {
-                        passwordcheck = input;
-                      },
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Passwort bestätigen',
-                      )),
+                  TextFormField(
+                    obscureText: isVisible ? false : true,
+                    onChanged: (input) {
+                      password = input;
+                    },
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Passwort',
+                      suffixIcon: IconButton(
+                        onPressed: () => visibility(),
+                        icon:
+                        Icon(isVisible ? Icons.visibility : Icons.visibility_off),
+                      ),
+                    ),
+                  ),
+                  TextFormField(
+                    obscureText: isVisible ? false : true,
+                    onChanged: (input) {
+                      passwordcheck = input;
+                    },
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Passwort bestätigen',
+                      suffixIcon: IconButton(
+                        onPressed: () => visibility(),
+                        icon:
+                        Icon(isVisible ? Icons.visibility : Icons.visibility_off),
+                      ),
+                    ),
+                  ),
                   ElevatedButton(
                       onPressed: () {
                         passwordchecker(email, password, passwordcheck, context);
