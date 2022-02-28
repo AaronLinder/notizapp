@@ -27,8 +27,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: color(),
-      home: const Scaffold(
+        theme: CustomTheme.darkTheme,
+      home: Scaffold(
         body: login(),
       ),
       routes: {
@@ -46,9 +46,9 @@ class _MyAppState extends State<MyApp> {
 
 color() {
   if(isSelected){
-    CustomTheme.lightTheme;
+    CustomTheme.darkTheme;
   }
   else{
-    CustomTheme.darkTheme;
+    CustomTheme.lightTheme;
   }
 }

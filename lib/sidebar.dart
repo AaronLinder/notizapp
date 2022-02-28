@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'authentification.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -13,7 +14,7 @@ class NavDrawer extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 25),
             ),
             decoration: BoxDecoration(
-              color: Color.fromRGBO(0, 113, 87, 1.0),
+                color: Color.fromRGBO(0, 113, 87, 1.0),
                 image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('assets/images/cover.jpg'))),
@@ -21,11 +22,20 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
-            onTap: () { Navigator.pushNamed(context, "options");},
+            onTap: () {
+              Navigator.pushNamed(context, "options");
+            },
           ),
           ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout'),
-            onTap: () { Navigator.pushNamed(context, "login");})]));
+            onTap: () {
+              AuthenticationHelper().signOut();
+              Navigator.pushNamed(context, "login");
+            },
+          ),
+        ],
+      ),
+    );
   }
 }

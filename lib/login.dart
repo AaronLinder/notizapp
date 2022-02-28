@@ -38,6 +38,7 @@ class login extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 AuthenticationHelper().signIn(email: email, password: password);
+                Navigator.pushNamed(context, "uebersicht");
               },
               child: Center(
                 child: Text("login"),
