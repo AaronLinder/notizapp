@@ -26,9 +26,9 @@ class _create_user_failState extends State<create_user_fail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 50, right: 50),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 50, right: 50),
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
