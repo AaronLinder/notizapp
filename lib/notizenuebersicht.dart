@@ -20,25 +20,29 @@ class uebersicht extends StatelessWidget {
                 child: Container(
                   decoration:
                       BoxDecoration(border: Border.all(color: Colors.black)),
-                  child: DropdownButton(items: null),
-                ),
-              ),
-              Expanded(
-                child: Row(
-                  children: [
+                  child: Row(children: [DropdownButton(items: null,
+                    iconDisabledColor: Colors.green,),
                     Expanded(
                       child: Align(
-                        alignment: Alignment.bottomLeft,
+                        alignment: Alignment.topRight,
                         child: Container(
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.black)),
                           child: SizedBox(
                             height: 25.0,
-                            child: DropdownButton(items: null),
+                            child: DropdownButton(items: null,
+                              iconDisabledColor: Colors.green,
+                            ),
                           ),
                         ),
                       ),
                     ),
+                  ],)
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  children: [
                     const Expanded(
                       child: Align(
                         alignment: Alignment.bottomRight,

@@ -6,6 +6,10 @@ class login extends StatefulWidget {
 
   @override
   State<login> createState() => _loginState();
+
+  void hilfe(){
+    _loginState().help();
+  }
 }
 
 class _loginState extends State<login> {
@@ -58,7 +62,6 @@ class _loginState extends State<login> {
             ElevatedButton(
               onPressed: () {
                 AuthenticationHelper().signIn(email: email, password: password);
-                Navigator.pushNamed(context, "uebersicht");
               },
               child: Center(
                 child: Text("login"),
@@ -75,5 +78,8 @@ class _loginState extends State<login> {
         ),
       ),
     );
+  }
+  void help(){
+    Navigator.pushNamed(context, "uebersicht");
   }
 }

@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'main.dart';
+import 'package:notizapp/login.dart';
 
 class AuthenticationHelper {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -16,6 +16,7 @@ class AuthenticationHelper {
       return null;
     } on FirebaseAuthException catch (e) {
       return e.message;
+
     }
   }
 
@@ -23,6 +24,7 @@ class AuthenticationHelper {
   Future signIn({required String email, required String password}) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
+      login().hilfe();
       return null;
     } on FirebaseAuthException catch (e) {
       return e.message;

@@ -13,7 +13,7 @@ class CustomTheme {
       surface: Color.fromRGBO(67, 6, 88, 1.0),
       primaryVariant: Color.fromRGBO(205, 0, 0, 1.0),
       error: Color.fromRGBO(224, 168, 70, 1.0),
-      onError: Color.fromRGBO(61, 10, 76, 1.0),
+      onError: Color.fromRGBO(255, 255, 255, 1.0),
       onSecondary: Color.fromRGBO(20, 109, 88, 1.0),
       onBackground: Color.fromRGBO(210, 2, 2, 1.0),
     );
