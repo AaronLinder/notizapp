@@ -50,14 +50,23 @@ class _login_failedState extends State<login_failed> {
                     labelText: 'Passwort',
                     suffixIcon: IconButton(
                       onPressed: () => visibility(),
-                      icon:
-                      Icon(isVisible ? Icons.visibility : Icons.visibility_off),
+                      icon: Icon(
+                          isVisible ? Icons.visibility : Icons.visibility_off),
                     ),
                   ),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    AuthenticationHelper().signIn(email: email, password: password);
+                    AuthenticationHelper()
+                        .signIn(email: email, password: password)
+                        .then(
+                          (value) => {
+                            if (value == true)
+                              {Navigator.pushNamed(context, "uebersicht")}
+                            else
+                              {Navigator.pushNamed(context, "loginf")}
+                          },
+                        );
                   },
                   child: Center(
                     child: Text("login"),

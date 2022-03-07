@@ -6,10 +6,6 @@ class login extends StatefulWidget {
 
   @override
   State<login> createState() => _loginState();
-
-  void hilfe(){
-    _loginState().help();
-  }
 }
 
 class _loginState extends State<login> {
@@ -55,13 +51,22 @@ class _loginState extends State<login> {
                 suffixIcon: IconButton(
                   onPressed: () => visibility(),
                   icon:
-                    Icon(isVisible ? Icons.visibility : Icons.visibility_off),
+                      Icon(isVisible ? Icons.visibility : Icons.visibility_off),
                 ),
               ),
             ),
             ElevatedButton(
               onPressed: () {
-                AuthenticationHelper().signIn(email: email, password: password);
+                AuthenticationHelper()
+                    .signIn(email: email, password: password)
+                    .then(
+                      (value) => {
+                        if (value == true)
+                          {Navigator.pushNamed(context, "uebersicht")}
+                        else
+                          {Navigator.pushNamed(context, "loginf")}
+                      },
+                    );
               },
               child: Center(
                 child: Text("login"),
@@ -78,8 +83,5 @@ class _loginState extends State<login> {
         ),
       ),
     );
-  }
-  void help(){
-    Navigator.pushNamed(context, "uebersicht");
   }
 }
