@@ -1,8 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:notizapp/sidebar.dart';
 
 class uebersicht extends StatelessWidget {
-  const uebersicht({Key? key}) : super(key: key);
+  uebersicht({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +44,13 @@ class uebersicht extends StatelessWidget {
               Expanded(
                 child: Row(
                   children: [
-                    const Expanded(
+                    Expanded(
                       child: Align(
                         alignment: Alignment.bottomRight,
                         child: ElevatedButton(
-                          onPressed: null,
+                          onPressed: (){
+                            Navigator.pushNamed(context, "notiz");
+                          },
                           child: Text("add Note"),
                         ),
                       ),

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:notizapp/login.dart';
 import 'package:notizapp/notizenuebersicht.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AuthenticationHelper {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -15,11 +16,16 @@ class AuthenticationHelper {
         password: password,
       );
       worked = true;
+      createDocument();
     } on FirebaseAuthException catch (e) {
       return e.message;
 
     }
     return worked;
+  }
+  void createDocument()
+  {
+    FirebaseFirestore.instance.collection("users").doc(user!.uid).set({"email":"hollo"});
   }
 
   //SIGN IN METHOD
