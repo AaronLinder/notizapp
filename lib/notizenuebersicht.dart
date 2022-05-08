@@ -1,9 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notizapp/sidebar.dart';
 
 class uebersicht extends StatelessWidget {
   uebersicht({Key? key}) : super(key: key);
+
+  Future initBuilder() async {
+    var currentUser = FirebaseAuth.instance.currentUser;
+    return await FirebaseFirestore.instance
+        .collection("users")
+        .doc(currentUser!.uid)
+        .get();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +29,39 @@ class uebersicht extends StatelessWidget {
               Align(
                 alignment: Alignment.topLeft,
                 child: Container(
-                  decoration:
-                      BoxDecoration(border: Border.all(color: Colors.black)),
-                  child: Row(children: [
-                    Expanded(
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black)),
-                          child: SizedBox(
-                            height: 25.0,
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: FutureBuilder(
+                            future: initBuilder(),
+                            builder: (BuildContext context,
+                                AsyncSnapshot<dynamic> snapshot) {
+                              if(snapshot.hasData){
+                                Map<String, dynamic> data =
+                                snapshot.data!.data() as Map<String, dynamic>;
+                                List notes = data["notes"];
+                                return Column(
+                                  children: [
+                                    ...(notes).map((e) {
+                                      return ElevatedButton(
+                                        onPressed: () {
+                                          
+                                        },
+                                        child: Text(e["titel"]),
+
+                                      );
+                                    })
+                                  ],
+                                    );
+                              }
+                              return Text("hallo");
+                            },
                           ),
                         ),
-                      ),
-                    ),
-                  ],)
-                ),
+                      ],
+                    )),
               ),
               Expanded(
                 child: Row(
@@ -44,7 +70,7 @@ class uebersicht extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.bottomRight,
                         child: ElevatedButton(
-                          onPressed: (){
+                          onPressed: () {
                             Navigator.pushNamed(context, "notiz");
                           },
                           child: Text("add Note"),

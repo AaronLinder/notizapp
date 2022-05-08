@@ -1,10 +1,24 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notizapp/sidebar.dart';
 
 class notiz extends StatelessWidget {
-  const notiz({Key? key}) : super(key: key);
-
+  notiz({Key? key}) : super(key: key);
+  var titel = "";
+  var notizbody = "";
+  void SafeNoteInDatabase() async{
+    var firebaseUser = FirebaseAuth.instance.currentUser;
+    await FirebaseFirestore.instance.collection("users").doc(firebaseUser!.uid).update({
+      "notes":FieldValue.arrayUnion([
+        {
+          "titel":titel,
+          "notiz":notizbody
+        }
+      ])
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,21 +32,26 @@ class notiz extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(left: 30, right: 30),
                 child: TextField(
-                    onSubmitted: null,
+                    onChanged: (text){
+                      titel = text;
+                    },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Title',
                     )),
               ),
               const SizedBox(height: 10),
-              const TextField(
+              TextField(
                   textInputAction: TextInputAction.newline,
                   keyboardType: TextInputType.multiline,
                   textAlignVertical: TextAlignVertical.top,
                   maxLines: null,
+                  onChanged: (text){
+                    notizbody = text;
+                  },
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.only(bottom: 460),
                     border: OutlineInputBorder(),
@@ -51,10 +70,9 @@ class notiz extends StatelessWidget {
                           child: Text('zurück'),
                         ),
                       ),
-                      const SizedBox(width: 200),
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, 'notizenuebersicht');
+                          SafeNoteInDatabase();
                         },
                         child: const Center(
                           child: Text('speichern'),
