@@ -21,8 +21,7 @@ class uebersicht extends StatelessWidget {
                 child: Container(
                   decoration:
                       BoxDecoration(border: Border.all(color: Colors.black)),
-                  child: Row(children: [DropdownButton(items: null,
-                    iconDisabledColor: Colors.green,),
+                  child: Row(children: [
                     Expanded(
                       child: Align(
                         alignment: Alignment.topRight,
@@ -31,9 +30,6 @@ class uebersicht extends StatelessWidget {
                               border: Border.all(color: Colors.black)),
                           child: SizedBox(
                             height: 25.0,
-                            child: DropdownButton(items: null,
-                              iconDisabledColor: Colors.green,
-                            ),
                           ),
                         ),
                       ),
