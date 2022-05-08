@@ -3,22 +3,43 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notizapp/sidebar.dart';
+import 'package:notizapp/notizenuebersicht.dart';
 
-class notiz extends StatelessWidget {
+class notiz extends StatefulWidget {
   notiz({Key? key}) : super(key: key);
+
+  @override
+  State<notiz> createState() => _notizState();
+}
+
+class _notizState extends State<notiz> {
   var titel = "";
   var notizbody = "";
-  void SafeNoteInDatabase() async{
+
+  void SafeNoteInDatabase() async {
     var firebaseUser = FirebaseAuth.instance.currentUser;
-    await FirebaseFirestore.instance.collection("users").doc(firebaseUser!.uid).update({
-      "notes":FieldValue.arrayUnion([
-        {
-          "titel":titel,
-          "notiz":notizbody
-        }
+    await FirebaseFirestore.instance
+        .collection("users")
+        .doc(firebaseUser!.uid)
+        .update({
+      "notes": FieldValue.arrayUnion([
+        {"titel": titel, "notiz": notizbody}
       ])
     });
   }
+
+  TextEditingController getTitel = TextEditingController();
+  TextEditingController getNotiz = TextEditingController();
+
+  @override
+  void initState() {
+    String notiz = uebersicht().notiz;
+    String titel = uebersicht().titel;
+    getTitel.text = notiz;
+    getNotiz.text = titel;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +56,8 @@ class notiz extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(left: 30, right: 30),
                 child: TextField(
-                    onChanged: (text){
+                    controller: getTitel,
+                    onChanged: (text) {
                       titel = text;
                     },
                     decoration: InputDecoration(
@@ -45,11 +67,12 @@ class notiz extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               TextField(
+                controller: getNotiz,
                   textInputAction: TextInputAction.newline,
                   keyboardType: TextInputType.multiline,
                   textAlignVertical: TextAlignVertical.top,
                   maxLines: null,
-                  onChanged: (text){
+                  onChanged: (text) {
                     notizbody = text;
                   },
                   decoration: InputDecoration(

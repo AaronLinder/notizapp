@@ -2,10 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:notizapp/notiz.dart';
 import 'package:notizapp/sidebar.dart';
 
 class uebersicht extends StatelessWidget {
   uebersicht({Key? key}) : super(key: key);
+
+  String titel = "";
+  String notiz = "";
+
+  void setTitelandNotiz(String _titel, String _notiz) async {
+    titel = _titel;
+    notiz = _notiz;
+  }
 
   Future initBuilder() async {
     var currentUser = FirebaseAuth.instance.currentUser;
@@ -47,7 +56,8 @@ class uebersicht extends StatelessWidget {
                                     ...(notes).map((e) {
                                       return ElevatedButton(
                                         onPressed: () {
-                                          
+                                          setTitelandNotiz(e["titel"], e["notiz"]);
+                                          Navigator.pushNamed(context, "notiz");
                                         },
                                         child: Text(e["titel"]),
 
