@@ -14,6 +14,7 @@ class uebersicht extends StatelessWidget {
   void setTitelandNotiz(String _titel, String _notiz) async {
     titel = _titel;
     notiz = _notiz;
+    print("set vars");
   }
 
   Future initBuilder() async {
@@ -47,24 +48,28 @@ class uebersicht extends StatelessWidget {
                             future: initBuilder(),
                             builder: (BuildContext context,
                                 AsyncSnapshot<dynamic> snapshot) {
-                              if(snapshot.hasData){
-                                Map<String, dynamic> data =
-                                snapshot.data!.data() as Map<String, dynamic>;
+                              if (snapshot.hasData) {
+                                Map<String, dynamic> data = snapshot.data!
+                                    .data() as Map<String, dynamic>;
                                 List notes = data["notes"];
                                 return Column(
                                   children: [
                                     ...(notes).map((e) {
                                       return ElevatedButton(
                                         onPressed: () {
-                                          setTitelandNotiz(e["titel"], e["notiz"]);
-                                          Navigator.pushNamed(context, "notiz");
+                                          setTitelandNotiz(
+                                              e["titel"], e["notiz"]);
+                                          Navigator.of(context).pushReplacement(
+                                              MaterialPageRoute(
+                                                  builder: (context) => Notiz(
+                                                      titel: titel,
+                                                      body: notiz)));
                                         },
                                         child: Text(e["titel"]),
-
                                       );
                                     })
                                   ],
-                                    );
+                                );
                               }
                               return Text("hallo");
                             },

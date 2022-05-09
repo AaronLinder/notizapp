@@ -36,7 +36,6 @@ class _MyAppState extends State<MyApp> {
         "create": (context) => create(),
         "loginf": (context) => login_failed(),
         "createf": (context) => create_user_fail(),
-        "notiz": (context) => notiz(),
         "uebersicht": (context) => uebersicht(),
         "options": (context) => options(),
       },

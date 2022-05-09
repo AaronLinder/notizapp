@@ -5,16 +5,21 @@ import 'package:flutter/material.dart';
 import 'package:notizapp/sidebar.dart';
 import 'package:notizapp/notizenuebersicht.dart';
 
-class notiz extends StatefulWidget {
-  notiz({Key? key}) : super(key: key);
+class Notiz extends StatefulWidget {
+
+  var titel = "";
+  var body = "";
+
+  Notiz({required this.titel, required this.body});
 
   @override
-  State<notiz> createState() => _notizState();
+  State<Notiz> createState() => _NotizState();
 }
 
-class _notizState extends State<notiz> {
+class _NotizState extends State<Notiz> {
   var titel = "";
   var notizbody = "";
+
 
   void SafeNoteInDatabase() async {
     var firebaseUser = FirebaseAuth.instance.currentUser;
@@ -28,15 +33,15 @@ class _notizState extends State<notiz> {
     });
   }
 
-  TextEditingController getTitel = TextEditingController();
+  TextEditingController getTitelController = TextEditingController();
   TextEditingController getNotiz = TextEditingController();
-
   @override
   void initState() {
-    String notiz = uebersicht().notiz;
-    String titel = uebersicht().titel;
-    getTitel.text = notiz;
-    getNotiz.text = titel;
+    print("initState");
+    String notiz = widget.body;
+    String titel = widget.titel;
+    getTitelController.text = titel;
+    getNotiz.text = notiz;
     super.initState();
   }
 
@@ -56,7 +61,7 @@ class _notizState extends State<notiz> {
               Padding(
                 padding: EdgeInsets.only(left: 30, right: 30),
                 child: TextField(
-                    controller: getTitel,
+                    controller: getTitelController,
                     onChanged: (text) {
                       titel = text;
                     },
